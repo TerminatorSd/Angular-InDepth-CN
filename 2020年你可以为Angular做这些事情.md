@@ -51,5 +51,22 @@ Protractor是什么？
 官方的Angular脚手架lint生成器和Codelyzer的lint规则都是基于TSLint的，Angular开发团队[打算在Angular10中使用ESLint替换TSLint](https://github.com/angular/angular-cli/issues/13732#issuecomment-573149865)
 
 #### 我能做些什么？
-1. 参考[Minko Gechev更新的这个issue](https://github.com/angular/angular-cli/issues/13732#issuecomment-575796158)
-2. 帮助James Henry创建一个[基于ESLint的Angular脚手架生成器](https://github.com/angular-eslint/angular-eslint/tree/master/packages/builder)，以及[将Codelyzer的规则迁移到ESLint](https://github.com/angular-eslint/angular-eslint#rules-list)
+1. 参考[Minko Gechev更新的这个issue](https://github.com/angular/angular-cli/issues/13732#issuecomment-575796158)；
+2. 帮助James Henry创建一个[基于ESLint的Angular脚手架生成器](https://github.com/angular-eslint/angular-eslint/tree/master/packages/builder)，以及[将Codelyzer的规则迁移到ESLint](https://github.com/angular-eslint/angular-eslint#rules-list)。
+
+#### Protractor
+作为伴随Angular开箱即用的端到端测试框架，Protractor的情况不容乐观。尽管Protractor 2019年的issue 的数量一直在增长（2019年一年就有超过200个打开的issue），也为它包含的Selenium WebDriver APIs 带来了巨大的改变，但是它基本上没有被使用过。
+
+Protractor 最近的一个稳定版本（5.4.2）是在2018年12月发布的。2019年3月在NPM发布了一个[非官方版本6](https://github.com/angular/protractor/issues/5290#issuecomment-521320499)，但是至今都没有被打上latest的标签。
+
+首先，由于Selenium WebDriver 的改变，我们不得不将自己所有的测试用例从同步的方式改为使用`async-await` 的异步方式。其次，一些特性被破坏了，并且文档和类型部分丢失或过时了。
+
+[Angular 开发团队已经接手了Protractor](https://github.com/angular/protractor/issues/5209#issuecomment-523182031)，但是处理Ivy 就够他们忙的了，他们可能没有时间来处理Protractor 和Selenium.
+
+#### 我能做些什么？
+1. Protractor 需要`ng update` 示意图，分别用于将测试用例从Protractor 5.x升级到6.0和在浏览器中查询DOM的时候使用`async-await` 方法；
+2. Protractor 需要来自`elenium-webdriver` 全量的更新类型；
+3. Protractor 需要更新它的文档以体现出两方面的信息：一是API 的变更，二是一般的测试流程；
+4. `webdriver-manager` (Protractor 的一部分) 需要解决所有的bug 并且更新到它的文档中。
+
+#### Augury
