@@ -41,9 +41,9 @@ ngx -p @angular/bazel ng new --collection=@angular/bazel my-angular-workspace
 添加`@angular/bazel`转换我们的angular.json 文件，以使用`@angular/bazel:build` Angular 脚手架生成器来生成启动和配置文件来支持类似RxJS和Protractor等依赖项。
 
 #### More（译者添加）
-Bazel 是什么？
+[Bazel 是什么？](https://www.bazel.build/)
 
-Protractor 是什么？
+[Protractor 是什么？](https://www.linkedin.com/pulse/protractor-e2e-testing-framework-akhilesh-keshari)
 
 #### TSLint
 [TSLint 已经被废弃了](https://github.com/palantir/tslint/issues/4534#issue-413722441)，2020年底会停止维护。
