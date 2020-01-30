@@ -70,3 +70,13 @@ Protractor 最近的一个稳定版本（5.4.2）是在2018年12月发布的。2
 4. `webdriver-manager` (Protractor 的一部分) 需要解决所有的bug 并且更新到它的文档中。
 
 #### Augury
+Augury 是由Rangle.io 维护的官方浏览器开发调试工具。尽管它一直在修复问题，但是自从最初版本出来之后没有看到任何值得留意的新增特性。
+
+2020年Augury 面临的挑战是它[没有任何支持Ivy 的计划](https://github.com/rangle/augury#supported-version)，所以对于新的使用Ivy 维护的项目来说，它将不再适用。
+
+Ivy 移除了`ng.probe`，但是引入了一组新的用于运行时调试的API。
+
+#### 我能做些什么？
+1. 问一下Angular 开发团队你能为[新的调试API 的文档建设](https://github.com/angular/angular/issues/30737#issuecomment-498284237)做些什么；
+2. [针对Augury](https://github.com/rangle/augury)，迁移到Ivy 新的调试API 并提交pull request；
+3. 为新的使用场景像[Augury GitHub仓库](https://github.com/rangle/augury/issues) 提供新的issue。
