@@ -44,3 +44,12 @@ ngx -p @angular/bazel ng new --collection=@angular/bazel my-angular-workspace
 Bazel是什么？
 
 Protractor是什么？
+
+#### TSLint
+[TSLint 已经被废弃了](https://github.com/palantir/tslint/issues/4534#issue-413722441)，2020年底会停止维护。
+
+官方的Angular脚手架lint生成器和Codelyzer的lint规则都是基于TSLint的，Angular开发团队[打算在Angular10中使用ESLint替换TSLint](https://github.com/angular/angular-cli/issues/13732#issuecomment-573149865)
+
+#### 我能做些什么？
+1. 参考[Minko Gechev更新的这个issue](https://github.com/angular/angular-cli/issues/13732#issuecomment-575796158)
+2. 帮助James Henry创建一个[基于ESLint的Angular脚手架生成器](https://github.com/angular-eslint/angular-eslint/tree/master/packages/builder)，以及[将Codelyzer的规则迁移到ESLint](https://github.com/angular-eslint/angular-eslint#rules-list)
