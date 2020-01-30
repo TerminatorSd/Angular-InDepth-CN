@@ -21,7 +21,26 @@ Ivy在过去几年里占据了Angular团队的大部分时间，2020年仍有很
 
 #### 我能做些什么？
 1. 写一些关于RxJS7.x和8.x新特性的文章
-2. 为RxJS文档做贡献
+2. [为RxJS文档做贡献](https://dzhavat.github.io/2020/01/03/getting-started-with-contributing-to-rxjs-docs.html)
 3. 帮助建设RxJS7.0和8.0的`ng update`示意图
 
 #### Bazel
+计划将支持Bazel2.1作为Angular9的可选项加入。最终，Bazel将会成为Angular脚手架默认的自动化构建工具。
+
+#### 我能做些什么？
+1. 在你的Angular9项目中通过运行以下命令集成Bazel
+```
+ng add @angular/bazel
+```
+2. 先参考[Bazel 安装指导](https://docs.bazel.build/versions/2.0.0/install.html)新建一个带有Bazel的Angular9的项目，然后执行以下命令：
+```
+ngx -p @angular/bazel ng new --collection=@angular/bazel my-angular-workspace
+```
+3. 为[Angular](https://github.com/angular/angular/issues) 和[Bazel](https://github.com/bazelbuild/bazel/issues) 的GitHub 仓库提交issues
+
+添加`@angular/bazel`转换我们的angular.json文件，以使用`@angular/bazel:build`Angular脚手架生成器来生成启动和配置文件来支持类似RxJS和Protractor等依赖项。
+
+#### More（译者添加）
+Bazel是什么？
+
+Protractor是什么？
