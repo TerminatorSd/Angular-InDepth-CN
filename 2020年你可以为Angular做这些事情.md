@@ -80,3 +80,12 @@ Ivy 移除了`ng.probe`，但是引入了一组新的用于运行时调试的API
 1. 问一下Angular 开发团队你能为[新的调试API 的文档建设](https://github.com/angular/angular/issues/30737#issuecomment-498284237)做些什么；
 2. [针对Augury](https://github.com/rangle/augury)，迁移到Ivy 新的调试API 并提交pull request；
 3. 为新的使用场景像[Augury GitHub仓库](https://github.com/rangle/augury/issues) 提供新的issue。
+
+#### 视图引擎到Ivy 的转换
+Angular 9的发布正式标志着从从视图引擎到Ivy 转换的开始。
+
+在Angular 9搭建的项目中，建议将项目切换到Ivy，但是仍然会发布视图引擎相关的库。
+
+在Angular 10中，建议发布AOT编译的Ivy 库。
+
+在Angular 11中，视图引擎会从应用中移除，但是Angular 兼容性编译器会确保Ivy 应用在视图引擎哭瞎仍然能够工作。
