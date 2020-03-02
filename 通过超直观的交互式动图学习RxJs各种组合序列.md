@@ -44,9 +44,7 @@ a.pipe(merge(b)).subscribe(fullObserver('merge'));
 
 和stackblitz可编辑的[演示](https://stackblitz.com/edit/combining-sequences-merge)：
 
-![1582851202397](C:\Users\x00523261\AppData\Roaming\Typora\typora-user-images\1582851202397.png)
-
-
+![mergeImg](./img/rxjs/merge.jpg)
 
 ##### 顺序连接多个序列
 
@@ -72,9 +70,7 @@ a.pipe(concat(b)).subscribe(fullObserver('concat'));
 
 和stackblitz可编辑的[演示](https://stackblitz.com/edit/concat)：
 
-![1582851172426](C:\Users\x00523261\AppData\Roaming\Typora\typora-user-images\1582851172426.png)
-
-
+![concatImg](./img/rxjs/concat.jpg)
 
 ##### 竞争性序列合并
 
@@ -98,7 +94,7 @@ a.pipe(race(b)).subscribe(fullObserver('race'));
 
 和stackblitz可编辑的[演示](https://stackblitz.com/edit/combining-sequences-race-b-is-ignored)：
 
-![1582851151626](C:\Users\x00523261\AppData\Roaming\Typora\typora-user-images\1582851151626.png)
+![raceImg](./img/rxjs/race.jpg)
 
 ##### 利用高阶的可观察对象将位置数量的序列连接起来
 
