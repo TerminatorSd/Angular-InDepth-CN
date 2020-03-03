@@ -18,7 +18,7 @@
 
 ![stream](https://admin.indepth.dev/content/images/2020/02/1_AxPXs_XCzhvBD5Y-OHrrZQ.gif)
 
-
+#### 简单操作符
 
 ##### 同时合并多个序列
 
@@ -96,7 +96,7 @@ a.pipe(race(b)).subscribe(fullObserver('race'));
 
 ![raceImg](./img/rxjs/race.jpg)
 
-##### 利用高阶的可观察对象将位置数量的序列连接起来
+#### 利用高阶的可观察对象连接未知数量的序列
 
 上面提到的操作符，不论是作为静态还是实例版本，都只能连接已知数量的输入流序列。但是如果你想连接事先不知道数量，只有在运行时才知道数量的序列该怎么办？实际上，这是在与异步代码打交道的过程中一个非常常见的场景。举例来说，一次网络请求可能导致许多次其他的网络请求，而其他请求的数量由原始的请求结果所决定。
 
@@ -167,7 +167,7 @@ h.pipe(switchAll()).subscribe(fullObserver('switchAll'));
 
 ![concatAllImg](./img/rxjs/concatAll.jpg)
 
-##### concatMap, mergeMap 和 switchMap
+#### concatMap, mergeMap 和 switchMap
 
 有意思的是，在操作可观测的可观测对象上，concatMap、mergeMap 和switchMap 比concatAll、mergeAll 和switchAll 更常用。但是，如果你仔细考虑一下，它们其实是差不多的东西。所有的Map 类操作符包含两个部分的内容，通过映射和对由高阶数据流产生的内部数据流应用组合逻辑来产生最终的结果数据流。
 
@@ -192,7 +192,7 @@ h.subscribe(fullObserver('mergeMap'));
 
 结果将会是完全一样，对于concatMap 和switchMap 也成立 —— 自己尝试一下吧。
 
-##### 通过数据配对组合序列
+#### 通过数据配对组合序列
 
 前面的运算符允许我们摊平多个序列，并通过结果数据流来传递这些序列的值，就像他们都来自这个结果序列一样。我们接下来要看的一组操作符仍然以多个数据流为输入，但不同的是，他们对每个序列的值进行配对，以生成输出到结果序列中的单个组合值。
 
