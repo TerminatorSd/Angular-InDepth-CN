@@ -166,3 +166,31 @@ h.pipe(switchAll()).subscribe(fullObserver('switchAll'));
 和stackblitz可编辑的[演示](https://stackblitz.com/edit/switch-all)：
 
 ![concatAllImg](./img/rxjs/concatAll.jpg)
+
+##### concatMap, mergeMap 和 switchMap
+
+有意思的是，在操作可观测的可观测对象上，concatMap、mergeMap 和switchMap 比concatAll、mergeAll 和switchAll 更常用。但是，如果你仔细考虑一下，它们其实是差不多的东西。所有的Map 类操作符包含两个部分的内容，通过映射和对由高阶数据流产生的内部数据流应用组合逻辑来产生最终的结果数据流。
+
+让我们来看一段熟悉的代码，它描述了mergeAll 是如何工作的：
+
+```
+const a = stream('a', 200, 3);
+const b = stream('b', 200, 3);
+const h = interval(100).pipe(take(2), map(i => [a, b][i]));
+h.pipe(mergeAll()).subscribe(fullObserver('mergeAll'));
+```
+
+这里面map 提供了一个可观测的数据流，mergeAll 结合了所有来自数据流的对象。而我们使用mergeMap 操作符就可以实现这两个功能：
+
+```
+const a = stream('a', 200, 3);
+const b = stream('b', 200, 3);
+const h = interval(100).pipe(take(2), mergeMap(i => [a, b][i]));
+
+h.subscribe(fullObserver('mergeMap'));
+```
+
+结果将会是完全一样，对于concatMap 和switchMap 也成立 —— 自己尝试一下吧。
+
+##### 通过数据配对组合序列
+
