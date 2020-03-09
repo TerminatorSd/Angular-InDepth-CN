@@ -269,3 +269,8 @@ forkJoin(a, b).subscribe(fullObserver('forkJoin'));
 和stackblitz可编辑的[演示](https://stackblitz.com/edit/fork-join)：
 
 ![concatAllImg](./img/rxjs/forkJoin.jpg)
+
+##### WithLatestFrom
+最后，我们来看一下withLatestFrom 操作符。当你有一个引导流，并且需要来自其他流的最新值时，你就应该使用这个操作符。
+
+![withLatestFrom](https://admin.indepth.dev/content/images/2020/02/444.gif)
