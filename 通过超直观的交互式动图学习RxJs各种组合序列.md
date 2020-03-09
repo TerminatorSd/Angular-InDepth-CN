@@ -248,3 +248,24 @@ zip(a, b).subscribe(fullObserver('zip'));
 
 ![concatAllImg](./img/rxjs/zip.jpg)
 
+##### forkJoin
+
+有时候你有一组输入流，但是你只关心每个输入流最后一次发出的值。通常这些输入流只会发出一次值。举例来说，你可能会发出多个网络请求，但是只要所有的请求都返回值的时候你才回采取某项行动。它有点像Promise.all 这个函数的功能。但是，如果输入流中有一项产生了多条数据，那么那你只想保留最后一项。
+
+结果流只在所有内部流完成的时候发出一次值。如果有内部流没完成或者报错了，那么结果流相应地也无法完成或报错。
+
+在下面的动图中，你可以看到forkJoin 是如何连接A和B两个输入流的。一旦一堆对应的值被发出，结果流就会产生一个结合值。一旦一对对应的值产生，结果序列就会产生一个组合值：
+
+![forkJoin](https://admin.indepth.dev/content/images/2020/02/333.gif)
+
+这是上面所展示动图的代码示例:
+
+```
+const a = stream('a', 200, 3, 'partial');
+const b = stream('b', 500, 3, 'partial');
+forkJoin(a, b).subscribe(fullObserver('forkJoin'));
+```
+
+和stackblitz可编辑的[演示](https://stackblitz.com/edit/fork-join)：
+
+![concatAllImg](./img/rxjs/forkJoin.jpg)
