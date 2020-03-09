@@ -273,4 +273,6 @@ forkJoin(a, b).subscribe(fullObserver('forkJoin'));
 ##### WithLatestFrom
 最后，我们来看一下withLatestFrom 操作符。当你有一个引导流，并且需要来自其他流的最新值时，你就应该使用这个操作符。
 
+与combineLatest 不同的是，combineLatest 在任意一个内部流发出一个新值的时候都会发出一个组合值，而withLatestFrom 只有在引导流发出新值的时候才会发出一次组合值。
+
 ![withLatestFrom](https://admin.indepth.dev/content/images/2020/02/444.gif)
