@@ -275,4 +275,19 @@ forkJoin(a, b).subscribe(fullObserver('forkJoin'));
 
 与combineLatest 不同的是，combineLatest 在任意一个内部流发出一个新值的时候都会发出一个组合值，而withLatestFrom 只有在引导流发出新值的时候才会发出一次组合值。
 
+
+在下面的动图中，你可以看到withLatestFrom 是如何连接A和B两个输入流的，其中B是引导流。每次B发出一个新值的时候，结果序列会将该值与A输入流的最新值放到一起联合发出：
+
 ![withLatestFrom](https://admin.indepth.dev/content/images/2020/02/444.gif)
+
+这是上面所展示动图的代码示例:
+
+```
+const a = stream('a', 3000, 3, 'partial');
+const b = stream('b', 500, 3, 'partial');
+b.pipe(withLatestFrom(a)).subscribe(fullObserver('latest'));
+```
+
+和stackblitz可编辑的[演示](https://stackblitz.com/edit/with-latest-from)：
+
+![concatAllImg](./img/rxjs/forkJoin.jpg)
