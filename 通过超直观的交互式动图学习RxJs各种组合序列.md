@@ -291,3 +291,18 @@ b.pipe(withLatestFrom(a)).subscribe(fullObserver('latest'));
 和stackblitz可编辑的[演示](https://stackblitz.com/edit/with-latest-from)：
 
 ![concatAllImg](./img/rxjs/forkJoin.jpg)
+
+##### 映射函数
+
+如本文开头所述，用于配对组合值的所有运算符都可以采用投影函数处理最后的结果。通过使用投影函数,你可以选择只发出来自部分输入流的数据,或者对数据进行任意的组合:
+
+```
+// return value from the second sequence
+zip(s1, s2, s3, (v1, v2, v3) => v2)
+
+// join values using dash as a separator
+zip(s1, s2, s3, (v1, v2, v3) => `${v1}-${v2}-${v3}`)
+
+// return single boolean result
+zip(s1, s2, s3, (v1, v2, v3) => v1 && v2 && v3)
+```
